@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTX Partner Tool</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #0f1115;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      padding: 20px;
+      background-color: #1a1d23;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #a0a0a0;
+      font-size: 14px;
+      margin-bottom: 30px;
+    }
+
+    input {
+      padding: 12px;
+      width: 100%;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #00c2ff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #00a8e0;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #00c2ff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img class="logo" src="https://seeklogo.com/images/H/htx-logo-35883F0B1C-seeklogo.com.png" alt="HTX Logo">
+    <h1>Партнёр HTX</h1>
+    <p>Введите UID HTX для проверки</p>
+    
+    <input type="text" id="inputValue" placeholder="Введите UID HTX">
+    <button onclick="process()">Проверить</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script>
+    const replacements = {
+      "456": "123",
+      "789": "987",
+      "111": "HTX-APPROVED",
+      "533611850": "504895023"
+    };
+
+    function process() {
+      const input = document.getElementById('inputValue').value.trim();
+      const result = replacements[input] || "Неизвестное значение";
+      document.getElementById('result').innerText = result;
+    }
+  </script>
+</body>
+</html>
